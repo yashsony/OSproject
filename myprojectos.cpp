@@ -4,7 +4,8 @@ int main()
 {
 int time = 0;
 int q1[4]={9000,9000,9000,9000} , q2[4] , q3[4] ={9000,9000,9000,9000}, q1p[4] , q2p[4] , AT[4] = {0,2,14,13} , BT[4] = {6,23,22,7} ,ans[200]
-, min=900 ,  f_q1=-1 , r_q1=-1 , f_q2=-1 , r_q2=-1 ,f_q3=-1 , r_q3=-1 , p,var1,var2,var3,name_of_p_low_bt;
+, min=900 ,  f_q1=-1 , r_q1=-1 , f_q2=-1 , r_q2=-1 ,f_q3=-1 , r_q3=-1 , p,var1,var2,var3,name_of_p_low_bt,
+ p0_c,p1_c,p2_c,p3_c,p0_c1=0,p1_c1=0,p2_c1=0,p3_c1=0;
 while(1)
  {
 	for(int i=0;i<4;i++)
@@ -193,6 +194,30 @@ T:
 time++;	 
 }
 Q:
-	printf("end");
+	for(int i=0;i<time;i++)
+	{if(ans[i]==0)
+	{
+	p0_c=i+1;
+	++p0_c1;}
+	else if(ans[i]==1)
+	{++p1_c1;
+		p1_c=i+1;
+	}
+
+	else if(ans[i]==2)
+	{++p2_c1;
+		p2_c=i+1;
+	}
+
+	else
+	{
+    ++p3_c1;
+	p3_c=i+1;
+    }
+	}
+	printf("p0 p1 p2 p3\n");
+	printf("%d %d %d %d\n", p0_c,p1_c,p2_c,p3_c);
+	printf("%d %d %d %d\n", p0_c1,p1_c1,p2_c1,p3_c1);
+	
 	return 0;
 }
