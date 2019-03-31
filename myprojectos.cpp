@@ -69,7 +69,7 @@ while(1)
 					++f_q3;
 					}}
 				ans[time]=name_of_p_low_bt;
-				printf("in Q3\n");
+				
 				
 			}
 		}
@@ -120,7 +120,7 @@ while(1)
 		       }
 	    }
 	    ans[time]=var2;
-	    printf("in Q2\n");
+	    
 	    
 	    
 		}//q2 end
@@ -182,15 +182,15 @@ while(1)
 		  }
 	    }
 	    ans[time]=var3;
-	    printf("in Q1\n");
+	    
 	   
 	    
 	}//q2 end	
     
-	
-printf("%d %d\n",ans[time],time+1);	
+	T:
+printf("process p%d runs at time %d\n",ans[time],time+1);	
 printf("--------------------------------\n");
-T:	
+	
 time++;	 
 }
 Q:
@@ -216,8 +216,11 @@ Q:
     }
 	}
 	printf("p0 p1 p2 p3\n");
-	printf("%d %d %d %d\n", p0_c,p1_c,p2_c,p3_c);
-	printf("%d %d %d %d\n", p0_c1,p1_c1,p2_c1,p3_c1);
+	printf("%d %d %d %d <---completion time\n", p0_c,p1_c,p2_c,p3_c);
+	printf("%d %d %d %d <-----burst time\n", p0_c1,p1_c1,p2_c1,p3_c1);
+	printf("%d %d %d %d <-----arrival time\n", AT[0],AT[1],AT[2],AT[3]);
+	printf("%d %d %d %d <-----turn around time\n", p0_c-AT[0],p1_c-AT[1],p2_c-AT[2],p3_c-AT[3]);
+	printf("%d %d %d %d <-----waiting time\n", p0_c-AT[0]-p0_c1, p1_c-AT[1]-p1_c1, p2_c-AT[2]-p2_c1, p3_c-AT[3]-p3_c1);
 	
 	return 0;
 }
